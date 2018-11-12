@@ -31,7 +31,7 @@ Feed a constant speed of 49.5 mph and a straight path ahead, though the car ends
 
 Feed a constant speed of 49.5 mph and a frenet coordinate d of 6 to make the car stay driving in the middle lane. The car follows the lane well, though it ends up rear crash the front car due to the contant speed of 49.5 mph. The 0 to 49.5 mph acceleration jerk problem remains.
 
-#### Attempt 3: use spline to smooth car moving path
+#### Attempt 3: Use spline to smooth car moving path
 
 Fit the way points of the tracks with respective to the current car position, and make a smoother path for car to move. This is also to prepare a smoother lane change for the car later.
 
@@ -49,7 +49,7 @@ If no car on the left is too close, and the current car speed is over 45.0 mph, 
 
 The car will not change lane if it has just changed a lane 1000 message beats (20 seconds) ago, to avoid behaviors of aggressive lane changes.
 
-#### Reflections: Behavioral path planning for with path generation and machine learning 
+#### Reflections: Behavioral path planning with path generation and machine learning 
 
 The attempt 5 essentially encodes a rule-based path planning algorithm. It works well for the simulated environment. The real world driving hower is much more complex. For example a car crash in the middle lane may need us to change lane quickly to the right most lane, without considering anything if the car has changed the lane a few seconds ago. The path planning can be made more robust if more previous data have been collected of the actual road conditions, along with behaviours of other drivers, and importantly what the right responses the car should react. A sophisticated machine learning model can be built, for example, to decide if the car should change the lane to the left or to the right, when the car is in the middle lane. 
 
