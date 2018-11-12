@@ -39,7 +39,7 @@ Fit the way points of the tracks with respective to the current car position, an
 
 Stay in the middle lane, calculate the distance to the car right in the front with the fusion data. If not too close and the car is within the max speed limit, catch up speed. Slow down if the car is too close. The car now maintains the lane without acceleration jerks.
 
-#### Attempt 5: Change lane if the front car causes slown down
+#### Attempt 5: Change lane if the front car causes slow down
 
 Calculate the distance to the car right in the front with the fusion data, and detect if it is too close and will cause a slow down or a lane change.
 
