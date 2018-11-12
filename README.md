@@ -11,7 +11,7 @@ In this project your goal is to safely navigate around a virtual highway with ot
 The final program achieves successful self-driving around the tracks with a reference max speed of 50 mph, without accident for over 1 hour and traveling over 44 miles:
 
 [//]: # (Image References)
-[image1]: ./images/cars_perspective.png "example driving result"
+[image1]: ./images/car-path-planning-2018-11-12t12-50-37.png "example driving result"
 
 ![alt text][image1] <br/>
 
