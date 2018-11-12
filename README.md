@@ -49,9 +49,17 @@ If no car on the left is too close, and the current car speed is over 45.0 mph, 
 
 The car will not change lane if it has just changed a lane 1000 message beats (20 seconds) ago, to avoid behaviors of aggressive lane changes.
 
-#### Reflections: Behavioral path planning for high way lane changes 
+#### Reflections: Behavioral path planning for with path generation and machine learning 
 
-The attempt 5 essentially encodes a rule-based path planning algorithm. It works well for the simulated environment. The real world driving hower is much more complex. For example a car crash in the middle lane may need us to change lane quickly to the right most lane, without considering anything if the car has changed the lane a few seconds ago. The path planning can be made more robust if more previous data have been collected of the actual road conditions, along with behaviours of other drivers, and importantly what the right responses the car should react. A sophisticated machine learning model can be built, for example, to decide if the car should change the lane to the left or to the right, when the car is in the middle lane. A simple logistic regression can be helpful to this kind of lane change decision.
+The attempt 5 essentially encodes a rule-based path planning algorithm. It works well for the simulated environment. The real world driving hower is much more complex. For example a car crash in the middle lane may need us to change lane quickly to the right most lane, without considering anything if the car has changed the lane a few seconds ago. The path planning can be made more robust if more previous data have been collected of the actual road conditions, along with behaviours of other drivers, and importantly what the right responses the car should react. A sophisticated machine learning model can be built, for example, to decide if the car should change the lane to the left or to the right, when the car is in the middle lane. 
+
+Lane change is essentailly a decision on the best path among a few possible pathes that the car can possibly head to. To generate path predictions, we extract features like the position, speed, and yaw angles of the cars in the next few lanes close by based on the fusion data. We use spline to extrapolate the trajectories up to a specific horizon (a few seconds), the behaviour planner defines a set of candidate targets: lane, speed, and time for the driving maneuvers:
+
+- for every candidate path a trajectory is fitted,
+- for every candidate trajectory a cost is computed,
+- the best trajector with the lowest cost is selected
+
+The design of the algorithm is largely in the extraction of the right features and the cost funtion. A machine learning or even simple logistic regression algorithm can be helpful in the path calculatins and predictions.
 
 ### Simulator
 You can download the Term3 Simulator which contains the Path Planning Project from the [releases tab (https://github.com/udacity/self-driving-car-sim/releases/tag/T3_v1.2).
